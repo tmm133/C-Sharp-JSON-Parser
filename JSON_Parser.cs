@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
-using System.Threading.Tasks;
 
 namespace JSON_Parser
 {
@@ -27,6 +26,7 @@ namespace JSON_Parser
                 {
                     jsonString = sr.ReadToEnd();
                 }
+                jsonString = jsonString.Replace(System.Environment.NewLine, string.Empty);
 
                 parseJSON(jsonString, 1, string.Empty, false);
                 prettyPrint();
@@ -73,9 +73,9 @@ namespace JSON_Parser
                         {
                             tempString = new Str(parse_String(ref stringIndex));
                             strings.Add(tempString);
-                            break;
+                            return new Str(tempString.val);
                         }
-                        if (isKey == false)
+                        if (isKey == false) //The string is a value
                         {
                             tempString = new Str(parse_String(ref stringIndex));
                             lstVal.Add(tempString);
@@ -117,7 +117,7 @@ namespace JSON_Parser
                         if (!forArray)
                             objects.Add(new Object(new Dictionary<string, List<Value>>(dictTemp)));
                         bools.Add(new Bool(false));
-                        stringIndex += 3;
+                        stringIndex += 4;
                         if (forArray)
                             return new Bool(false);
                         break;
