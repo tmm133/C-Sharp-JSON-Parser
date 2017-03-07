@@ -1,7 +1,6 @@
 # C-Sharp-JSON-Parser
 
-To use this, downoload the .exe file.  When executing the file, type in the full path of the file, and the full path of the JSON 
-that you want to parse.
+To use this, downoload the .exe file.  When executing the file, type in the full path of the file, then a space, and then the full path of the JSON that you want to parse.
 
 I've included two .cs files that creat the .exe.  The JSON_Classes.cs contains all the classes used to hold the JSON objects, and the 
 JSON_Parser.cs file is the main program that contains the algorithm to parse the JSON string.
